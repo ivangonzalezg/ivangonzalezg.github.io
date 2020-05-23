@@ -1,0 +1,30 @@
+header {
+  .navbar-brand {
+    padding: 0;
+    height: 40px;
+    width: 40px;
+    img {
+      height: 40px;
+    }
+  }
+  #responsive-navbar-nav {
+    a {
+      text-align: center;
+    }
+  }
+  @media (min-width: 767px) {
+    .active-link {
+      color: black !important;
+      border-bottom: 3px solid rgb(0, 0, 0);
+      margin-bottom: -3px;
+    }
+  }
+  @media (max-width: 767px) {
+    .navbar-collapse {
+      background: rgb(245, 246, 250);
+    }
+    .active-link {
+      background-color: rgb(232, 240, 253);
+    }
+  }
+}
