@@ -1,0 +1,142 @@
+{
+  "main": {
+    "name": "Iván González",
+    "occupation": "Full-Stack Developer",
+    "description": "Electronic Engineer from Universidad del Norte. Web, mobile and back-end developer by vocation",
+    "image": "profile.png",
+    "bio": "Electronic Engineer from Universidad del Norte with a degree in IT PC Essentials Essentials from Cisco Networking Academy. Spanish as a native language, proficiency in the English language and basic handling of the French language. Web and mobile developer by vocation. Software domain VSCode, Firebug, Postman and Robo3T. Skills for teamwork, analysis, interpersonal communication, strategic thinking and adaptability to changes. ",
+    "contactmessage": "Here is where you should write your message to readers to have them get in contact with you.",
+    "email": "ivangonzalezgrc@gmail.com",
+    "phone": "+57 3216572459",
+    "address": {
+      "city": "Montería",
+      "state": "Córdoba",
+      "country": "Colombia",
+      "zip": "230004"
+    },
+    "website": "https://ivangonzalezg.herokuapp.com",
+    "resumedownload": "https://drive.google.com/file/d/1WVfIwy7sXh5qe75YkSD3ZEjPfHk1AooQ/view?usp=sharing",
+    "social": [
+      {
+        "name": "facebook",
+        "url": "https://www.facebook.com/ivangonzalezgrc",
+        "className": "fa fa-facebook"
+      },
+      {
+        "name": "twitter",
+        "url": "https://twitter.com/ivangonzalezgrc",
+        "className": "fa fa-twitter"
+      },
+      {
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/ivangonzalezgrc",
+        "className": "fa fa-linkedin"
+      },
+      {
+        "name": "instagram",
+        "url": "https://www.instagram.com/ivangonzalezga",
+        "className": "fa fa-instagram"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/ivangonzalezg",
+        "className": "fa fa-github"
+      }
+    ]
+  },
+  "resume": {
+    "skillmessage": null,
+    "education": [
+      {
+        "school": "Universidad del Norte",
+        "degree": "Electronic engineer",
+        "graduated": "March 2020",
+        "description": "Evaluation, selection and installation of the electronic systems of an industry or company. Design, operation, maintenance and administration of electronic systems. Technology-based companies management."
+      },
+      {
+        "school": "E.I Comfacor “Jaime Exbrayat”",
+        "degree": "Academic Bachelor",
+        "graduated": "December 2014",
+        "description": "Recognize your own value and that of the rights of individuals and society. The development of their potentialities, of their talents as human persons. The ability to create new and appropriate ideas for successful application."
+      }
+    ],
+    "work": [
+      {
+        "company": "Awesome Design Studio",
+        "title": "Senior UX God ",
+        "years": "March 2010 - Present",
+        "description": "Describe work, special projects, notable achievements, what technologies you have been working with, and anything else that would be useful for an employer to know."
+      },
+      {
+        "company": "Super Cool Studio",
+        "title": "Junior bug fixer",
+        "years": "March 2007 - February 2010",
+        "description": "Describe work, special projects, notable achievements, what technologies you have been working with, and anything else that would be useful for an employer to know."
+      }
+    ],
+    "skills": [
+      {
+        "name": "HTML5",
+        "level": "80%"
+      },
+      {
+        "name": "CSS",
+        "level": "70%"
+      },
+      {
+        "name": "ReactJs",
+        "level": "70%"
+      },
+      {
+        "name": "Git",
+        "level": "60%"
+      },
+      {
+        "name": "React Native",
+        "level": "70%"
+      },
+      {
+        "name": "Express.js",
+        "level": "70%"
+      },
+      {
+        "name": "MongoDB",
+        "level": "80%"
+      }
+    ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "Testappmento",
+        "category": "Web app to save important information you want to share when you leave",
+        "image": "testappmento.png",
+        "url": "https://testappmento.com"
+      },
+      {
+        "title": "Escribania Manganaro",
+        "category": "(offline now) A fighting gear company I started",
+        "image": "escribania.png",
+        "url": "http://manganaro.com.ar"
+      },
+      {
+        "title": "Courseslist",
+        "category": "Website I built for a restaurant I like in Thailand",
+        "image": "courseslist.png",
+        "url": "https://www.courseslist.com"
+      }
+    ]
+  },
+  "testimonials": {
+    "testimonials": [
+      {
+        "text": "Here you should write some nice things that someone has said about you. No lies though, employers can tell when you are lying.",
+        "user": "Kareem Abdul Jabbar"
+      },
+      {
+        "text": "That Tim Baker must be one of the most brilliant developers I've ever met! It is amazing that nobody has hired him yet. Hey you, you should hire this guy, he may be fresh out of University and have zero on the job experience but I am confident that he will be one of your best developers in no time!",
+        "user": "Steve Wozniak... impersonator"
+      }
+    ]
+  }
+}
