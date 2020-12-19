@@ -503,6 +503,7 @@
                     data-name="Name"
                     placeholder="Enter Your Full Name"
                     id="name"
+                    required
                   />
                   <div class="text-field-spacer"></div>
                   <input
@@ -513,9 +514,10 @@
                     data-name="Email"
                     placeholder="Enter Your Email"
                     id="email"
+                    required
                   />
                 </div>
-                <select id="timeframe" name="time" data-name="Timeframe" class="select-field w-select">
+                <select id="timeframe" name="time" data-name="Timeframe" class="select-field w-select" required>
                   <option value="">Choose A Timeframe</option>
                   <option value="2-4 Weeks">2-4 Weeks</option>
                   <option value="1-2 Months">1-2 Months</option>
@@ -523,7 +525,7 @@
                   <option value="6 Months">6 Months</option>
                   <option value="6+ Months">6+ Months</option>
                 </select>
-                <select id="budget" name="budget" data-name="Budget" class="select-field w-select">
+                <select id="budget" name="budget" data-name="Budget" class="select-field w-select" required>
                   <option value="">Choose A Budget</option>
                   <option value="Less than $5,000">Less Than $2,000</option>
                   <option value="$5,000 - $8,000">$2,000 - $5,000</option>
@@ -537,8 +539,7 @@
                   name="message"
                   data-name="Message"
                   class="text-field min-height w-input"
-                >
-                </textarea>
+                ></textarea>
                 <input
                   type="submit"
                   name="button"
