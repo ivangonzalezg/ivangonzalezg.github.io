@@ -22,12 +22,14 @@
           transform: translate3d(-80px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
           opacity: 0;
         }
+
         html.w-mod-js:not(.w-mod-ix) [data-w-id="faf508ad-8beb-6a9f-db91-fad9d4621f7b"] {
           -webkit-transform: translate3d(0, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
           -moz-transform: translate3d(0, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
           -ms-transform: translate3d(0, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
           transform: translate3d(0, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
         }
+
         html.w-mod-js:not(.w-mod-ix) [data-w-id="897411c0-85f2-6111-d792-2a75121245e7"] {
           -webkit-transform: translate3d(80px, -80px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
           -moz-transform: translate3d(80px, -80px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
@@ -35,6 +37,7 @@
           transform: translate3d(80px, -80px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
           opacity: 0;
         }
+
         html.w-mod-js:not(.w-mod-ix) [data-w-id="2b6e23ed-822f-039a-bc03-1f0c3f50cc3d"] {
           opacity: 0;
           -webkit-transform: translate3d(40px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
@@ -42,15 +45,18 @@
           -ms-transform: translate3d(40px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
           transform: translate3d(40px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
         }
+
         html.w-mod-js:not(.w-mod-ix) [data-w-id="b4de44b1-bc26-2b77-37b8-c66a2e35d4fb"] {
           -webkit-transform: translate3d(0, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
           -moz-transform: translate3d(0, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
           -ms-transform: translate3d(0, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
           transform: translate3d(0, 0, 0) scale3d(0, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
         }
+
         html.w-mod-js:not(.w-mod-ix) [data-w-id="7f7f2400-3fb3-5a37-20ca-2406456f26bd"] {
           opacity: 0;
         }
+
         html.w-mod-js:not(.w-mod-ix) [data-w-id="4def0a51-2eaa-da5d-bcd5-501bffeb8de8"] {
           display: flex;
           opacity: 1;
@@ -104,7 +110,7 @@
         const done = document.querySelector(".w-form-done");
         const fail = document.querySelector(".w-form-fail");
         $.ajax({
-          url: "/api/v1/form/send",
+          url: "https://cors-anywhere.herokuapp.com/http://13.90.37.241/api/v1/form/send",
           method: "POST",
           data: {
             name,
@@ -126,8 +132,11 @@
       }
     </script>
   </head>
+
   <body>
-    <div data-w-id="4def0a51-2eaa-da5d-bcd5-501bffeb8de8" class="loading-page"><div class="loading-circle"></div></div>
+    <div data-w-id="4def0a51-2eaa-da5d-bcd5-501bffeb8de8" class="loading-page">
+      <div class="loading-circle"></div>
+    </div>
     <div data-w-id="7f7f2400-3fb3-5a37-20ca-2406456f26bd" class="page-wrapper">
       <div
         data-collapse="all"
@@ -144,27 +153,32 @@
           data-w-id="e4782b48-1640-8777-bfa9-4868f8f6502e"
           aria-current="page"
           class="brand w-nav-brand w--current"
-          ><p style="margin-bottom: 0">Ivan Gonzalez</p>
-          <div class="logo-line"></div
-        ></a>
+        >
+          <p style="margin-bottom: 0">Ivan Gonzalez</p>
+          <div class="logo-line"></div>
+        </a>
         <nav role="navigation" class="nav-menu w-nav-menu">
-          <a href="#" class="nav-link-wrap w-inline-block"
-            ><div class="nav-link-inline">
+          <a href="#" class="nav-link-wrap w-inline-block">
+            <div class="nav-link-inline">
               <div class="nav-link">Home</div>
-              <div class="text-bg-accent white"></div></div></a
-          ><a href="#about" class="nav-link-wrap w-inline-block"
-            ><div class="nav-link-inline">
+              <div class="text-bg-accent white"></div>
+            </div> </a
+          ><a href="#about" class="nav-link-wrap w-inline-block">
+            <div class="nav-link-inline">
               <div class="nav-link">About</div>
-              <div class="text-bg-accent white"></div></div></a
-          ><a href="#latest-work" class="nav-link-wrap w-inline-block"
-            ><div class="nav-link-inline">
+              <div class="text-bg-accent white"></div>
+            </div> </a
+          ><a href="#latest-work" class="nav-link-wrap w-inline-block">
+            <div class="nav-link-inline">
               <div class="nav-link">Projects</div>
-              <div class="text-bg-accent white"></div></div></a
-          ><a href="#contact" class="nav-link-wrap w-inline-block"
-            ><div class="nav-link-inline">
+              <div class="text-bg-accent white"></div>
+            </div> </a
+          ><a href="#contact" class="nav-link-wrap w-inline-block">
+            <div class="nav-link-inline">
               <div class="nav-link">Contact</div>
-              <div class="text-bg-accent white"></div></div
-          ></a>
+              <div class="text-bg-accent white"></div>
+            </div>
+          </a>
         </nav>
         <div class="menu-button bg-mobile w-nav-button">
           <div class="burger-menu">
@@ -195,8 +209,8 @@
                 Domain of HTML, CSS 3, JS, Java, Node.js, React.js, React Native, Express.js, MongoDB and MySQL. Handling VS Code,
                 Postman, Terminal, MySQL Workbench, mongoDB Compass and Robo 3T.
               </p>
-              <a href="#latest-work" class="scroll-down-block w-inline-block"
-                ><div class="scroll-text">Scroll Down</div>
+              <a href="#latest-work" class="scroll-down-block w-inline-block">
+                <div class="scroll-text">Scroll Down</div>
                 <div
                   style="
                     -webkit-transform: translate3d(0, -24px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
@@ -211,8 +225,9 @@
                     width="8"
                     alt=""
                     class="scroll-down-icon"
-                  /></div
-              ></a>
+                  />
+                </div>
+              </a>
             </div>
             <div class="hero-spacer"></div>
             <div class="hero-col-right">
@@ -235,13 +250,12 @@
           </div>
         </div>
         <div class="social-block">
-          <a href="https://www.instagram.com/ivangonzalezga" target="_blank" rel="noopener noreferrer" class="social-link"
-            ><span class="underline-text">Instagram</span></a
-          ><a href="https://twitter.com/ivangonzalezgrc" target="_blank" rel="noopener noreferrer" class="social-link"
-            ><span class="underline-text">Twitter</span></a
-          ><a href="https://github.com/ivangonzalezg" target="_blank" rel="noopener noreferrer" class="social-link last"
-            ><span class="underline-text">Github</span></a
-          >
+          <a href="https://www.linkedin.com/in/ivangonzalezgrc" target="_blank" rel="noopener noreferrer" class="social-link">
+            <span class="underline-text">LinkedIn</span>
+          </a>
+          <a href="https://github.com/ivangonzalezg" target="_blank" rel="noopener noreferrer" class="social-link last">
+            <span class="underline-text">Github</span>
+          </a>
         </div>
       </section>
       <section
@@ -288,11 +302,13 @@
                     src="./assets/images/testappmento.png"
                     alt=""
                     sizes="(max-width: 479px) 87vw, (max-width: 767px) 90vw, (max-width: 991px) 44vw, (max-width: 1279px) 29vw, 373.328125px"
-                    class="project-img" />
+                    class="project-img"
+                  />
                   <div class="project-img-overlay">
                     <div class="project-title listing">Testappmento</div>
-                    <img src="./assets/images/plus.svg" alt="" class="plus-icon" /></div
-                ></a>
+                    <img src="./assets/images/plus.svg" alt="" class="plus-icon" />
+                  </div>
+                </a>
               </div>
               <div role="listitem" class="project-wrapper w-dyn-item">
                 <a href="http://manganaro.com.ar" target="_blank" rel="noopener noreferrer" class="project-img w-inline-block"
@@ -300,11 +316,13 @@
                     src="./assets/images/manganaro.png"
                     alt=""
                     sizes="(max-width: 479px) 87vw, (max-width: 767px) 90vw, (max-width: 991px) 44vw, (max-width: 1279px) 29vw, 373.328125px"
-                    class="project-img" />
+                    class="project-img"
+                  />
                   <div class="project-img-overlay">
                     <div class="project-title listing">Escribanía Manganaro</div>
-                    <img src="./assets/images/plus.svg" alt="" class="plus-icon" /></div
-                ></a>
+                    <img src="./assets/images/plus.svg" alt="" class="plus-icon" />
+                  </div>
+                </a>
               </div>
               <div role="listitem" class="project-wrapper w-dyn-item">
                 <a
@@ -316,11 +334,13 @@
                     src="./assets/images/relaxhome.png"
                     alt=""
                     sizes="(max-width: 479px) 87vw, (max-width: 767px) 90vw, (max-width: 991px) 44vw, (max-width: 1279px) 29vw, 373.328125px"
-                    class="project-img" />
+                    class="project-img"
+                  />
                   <div class="project-img-overlay">
                     <div class="project-title listing">Relaxhome</div>
-                    <img src="./assets/images/plus.svg" alt="" class="plus-icon" /></div
-                ></a>
+                    <img src="./assets/images/plus.svg" alt="" class="plus-icon" />
+                  </div>
+                </a>
               </div>
               <div role="listitem" class="project-wrapper w-dyn-item">
                 <a href="https://slyst.com" target="_blank" rel="noopener noreferrer" class="project-img w-inline-block"
@@ -328,11 +348,13 @@
                     src="./assets/images/slyst.png"
                     alt=""
                     sizes="(max-width: 479px) 87vw, (max-width: 767px) 90vw, (max-width: 991px) 44vw, (max-width: 1279px) 29vw, 373.328125px"
-                    class="project-img" />
+                    class="project-img"
+                  />
                   <div class="project-img-overlay">
                     <div class="project-title listing">Slyst - Landing Page</div>
-                    <img src="./assets/images/plus.svg" alt="" class="plus-icon" /></div
-                ></a>
+                    <img src="./assets/images/plus.svg" alt="" class="plus-icon" />
+                  </div>
+                </a>
               </div>
             </div>
           </div>
@@ -384,7 +406,7 @@
                   <div class="testimonial-number">01</div>
                   <p class="testimonial-text">
                     Clearly understood the requirements of project. Progress has been very good. Right skills for MongoDB, Angular
-                    and NodeJS. Highly recommended. ++++
+                    and NodeJS. Highly recommended.
                   </p>
                   <p class="testimonial-author">Javed A.</p>
                 </div>
@@ -479,9 +501,15 @@
             </div>
           </header>
           <div class="company-logos-grid">
-            <img src="./assets/images/vanana.png" alt="" class="company-logo" />
-            <img src="./assets/images/slyst_logo.png" alt="" class="company-logo" />
-            <img src="./assets/images/binbooker.jpg" alt="" class="company-logo" />
+            <a href="https://www.vanana.com" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/images/vanana.png" alt="" class="company-logo" />
+            </a>
+            <a href="https://www.slyst.com" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/images/slyst_logo.png" alt="" class="company-logo" />
+            </a>
+            <a href="https://www.binbooker.com" target="_blank" rel="noopener noreferrer">
+              <img src="./assets/images/binbooker.jpg" alt="" class="company-logo" />
+            </a>
           </div>
         </div>
         <div class="dotted-pattern companies-bottom-right"></div>
@@ -548,8 +576,12 @@
                   class="filled-btn submit w-button"
                 />
               </form>
-              <div class="success-message w-form-done"><div>Thank you! Your submission has been received!</div></div>
-              <div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div>
+              <div class="success-message w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
             </div>
           </div>
         </div>
