@@ -110,7 +110,7 @@
         const done = document.querySelector(".w-form-done");
         const fail = document.querySelector(".w-form-fail");
         $.ajax({
-          url: "https://cors-anywhere.herokuapp.com/http://13.90.37.241/api/v1/form/send",
+          url: "https://ivangonzalez-co.herokuapp.com/api/v1/form/send",
           method: "POST",
           data: {
             name,
@@ -118,7 +118,8 @@
             time,
             budget,
             message
-          }
+          },
+          dataType: "JSON"
         })
           .then(() => {
             done.style.display = "inline-block";
@@ -444,19 +445,19 @@
         <div class="container numbers-flex">
           <div class="numbers-wrapper">
             <div class="numbers-block">
-              <div class="numbers-value">5</div>
+              <div class="numbers-value">6</div>
               <div class="numbers-title">happy Clients</div>
             </div>
           </div>
           <div class="numbers-wrapper">
             <div class="numbers-block">
-              <div class="numbers-value">2</div>
+              <div class="numbers-value">3</div>
               <div class="numbers-title">years experience</div>
             </div>
           </div>
           <div class="numbers-wrapper">
             <div class="numbers-block">
-              <div class="numbers-value">4k+</div>
+              <div class="numbers-value">6k+</div>
               <div class="numbers-title">hours worked</div>
             </div>
           </div>
@@ -589,7 +590,7 @@
       </section>
       <footer class="footer">
         <div class="copyright-block">
-          <div class="copyright-text">© Ivan Gonzalez - 2020</div>
+          <div class="copyright-text">© Ivan Gonzalez - 2021</div>
         </div>
         <div class="footer-links"></div>
       </footer>
