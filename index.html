@@ -124,15 +124,6 @@
           ("ontouchstart" in o || (o.DocumentTouch && c instanceof DocumentTouch)) && (n.className += t + "touch");
       })(window, document);
     </script>
-    <!-- <link
-      href=""
-      rel="shortcut icon"
-      type="image/x-icon"
-    />
-    <link
-      href=""
-      rel="apple-touch-icon"
-    /> -->
     <script>
       function send(e) {
         const name = e.elements.name.value;
@@ -155,7 +146,7 @@
         const done = document.querySelector(".w-form-done");
         const fail = document.querySelector(".w-form-fail");
         $.ajax({
-          url: "https://bevdei.deta.dev/api/v1/form/send",
+          url: "https://api.ivangonzalez.co/v1/form/send",
           method: "POST",
           data: {
             name,
@@ -242,7 +233,6 @@
               <div class="title-wrap">
                 <div class="bg-text-wrapper">
                   <h1 class="hero-title">Ivan Gonzalez, Freelance Full Stack Developer</h1>
-                  <!-- <h2 class="hero-title">Freelance Full Stack Developer</h2> -->
                   <div class="text-bg-accent"></div>
                 </div>
               </div>
@@ -422,15 +412,6 @@
               </div>
             </div>
           </div>
-          <!-- <div class="button-container center">
-            <a
-              data-w-id="615aa8c2-f20f-aa5f-a14e-ee76fde7878b"
-              href="projects.html"
-              class="outlined-btn no-margin-top no-margin-right w-inline-block"
-              ><div class="filled-btn-text">View All Projects</div>
-              <div class="filled-btn-overlay"></div
-            ></a>
-          </div> -->
         </div>
         <div class="dotted-pattern latest-work-bottom-right"></div>
         <div class="dotted-pattern latest-work-center-left"></div>
@@ -475,24 +456,6 @@
                   <p class="testimonial-author">Javed A.</p>
                 </div>
               </div>
-              <!-- <div class="w-slide">
-                <div class="slider-content">
-                  <div class="testimonial-number">02</div>
-                  <p class="testimonial-text">
-                    I totally recommend Craig! He is fast, efficient and the communication was great.
-                  </p>
-                  <p class="testimonial-author">Max O&#x27;neill</p>
-                </div>
-              </div>
-              <div class="w-slide">
-                <div class="slider-content">
-                  <div class="testimonial-number">03</div>
-                  <p class="testimonial-text">
-                    Craig really gave 100% to help me with my project. I&#x27;m very happy with the end result!
-                  </p>
-                  <p class="testimonial-author">Beth Chapman</p>
-                </div>
-              </div> -->
             </div>
             <div class="left-arrow w-slider-arrow-left">
               <img src="./assets/images/left.svg" alt="left" class="arrow-left-icon" width="10" height="17" />
@@ -508,28 +471,22 @@
         <div class="container numbers-flex">
           <div class="numbers-wrapper">
             <div class="numbers-block">
-              <div class="numbers-value">6</div>
+              <div class="numbers-value">7</div>
               <div class="numbers-title">happy Clients</div>
             </div>
           </div>
           <div class="numbers-wrapper">
             <div class="numbers-block">
-              <div class="numbers-value">3</div>
+              <div class="numbers-value" id="years-experience">0</div>
               <div class="numbers-title">years experience</div>
             </div>
           </div>
           <div class="numbers-wrapper">
             <div class="numbers-block">
-              <div class="numbers-value">6k+</div>
+              <div class="numbers-value" id="hours-worked">0k+</div>
               <div class="numbers-title">hours worked</div>
             </div>
           </div>
-          <!-- <div class="numbers-wrapper">
-            <div class="numbers-block">
-              <div class="numbers-value">5</div>
-              <div class="numbers-title">awards Won</div>
-            </div>
-          </div> -->
         </div>
       </section>
       <section
@@ -663,7 +620,10 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
     <script>
-      var firebaseConfig = {
+      const yearsExperience = new Date().getFullYear() - 2018;
+      document.getElementById("years-experience").innerText = yearsExperience;
+      document.getElementById("hours-worked").innerText = yearsExperience * 2 + "k+";
+      const firebaseConfig = {
         apiKey: "AIzaSyD6VOW0xiQKy045ebpzQvPkXi82JcAdzsM",
         authDomain: "portfolio-81a40.firebaseapp.com",
         projectId: "portfolio-81a40",
