@@ -1,3 +1,13 @@
 <FilesMatch "\.(webp|svg|css|js)$">
-Header set Cache-Control "max-age=31536000"
+    Header set Cache-Control "max-age=31536000"
 </FilesMatch>
+
+RewriteEngine On
+RewriteRule ^$ /v1/ [L]
+
+RewriteCond %{REQUEST_URI} !^/v2/
+RewriteRule ^v2/(.*)$ /v2/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/v1/
+RewriteCond %{REQUEST_URI} !^/v2/
+RewriteRule ^(.*)$ /v1/$1 [L]
