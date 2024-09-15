@@ -7,11 +7,12 @@ RewriteBase /
 
 RewriteRule ^$ /v1/ [L]
 
-RewriteCond %{REQUEST_URI} ^/v2/?$ [NC]
-RewriteRule ^v2/?$ /v2/index.html [L]
+RewriteCond %{REQUEST_URI} ^/v([0-9]+)/?$ [NC]
+RewriteCond %{DOCUMENT_ROOT}/v%1/index.html -f
+RewriteRule ^v([0-9]+)/?$ /v%1/index.html [L]
 
-RewriteRule ^v2/(.*)$ /v2/$1 [L]
+RewriteRule ^v([0-9]+)/(.*)$ /v$1/$2 [L]
 
-RewriteCond %{REQUEST_URI} !^/v1/
-RewriteCond %{REQUEST_URI} !^/v2/
+RewriteCond %{REQUEST_URI} !^/v[0-9]+/
+RewriteCond %{REQUEST_URI} !^/v[0-9]+/(.*)$
 RewriteRule ^(.*)$ /v1/$1 [L]
