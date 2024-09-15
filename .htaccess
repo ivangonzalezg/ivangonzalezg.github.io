@@ -3,9 +3,13 @@
 </FilesMatch>
 
 RewriteEngine On
+RewriteBase /
+
 RewriteRule ^$ /v1/ [L]
 
-RewriteCond %{REQUEST_URI} !^/v2/
+RewriteCond %{REQUEST_URI} ^/v2/?$ [NC]
+RewriteRule ^v2/?$ /v2/index.html [L]
+
 RewriteRule ^v2/(.*)$ /v2/$1 [L]
 
 RewriteCond %{REQUEST_URI} !^/v1/
