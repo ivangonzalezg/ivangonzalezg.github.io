@@ -21,3 +21,8 @@ RewriteCond %{DOCUMENT_ROOT}/v%1/index.html -f
 RewriteRule ^v([0-9]+)/?$ /v%1/index.html [L]
 
 RewriteRule ^v([0-9]+)/(.*)$ /v$1/$2 [L]
+
+<Files ".ftp-deploy-sync-state.json">
+    Order Allow,Deny
+    Deny from all
+</Files>

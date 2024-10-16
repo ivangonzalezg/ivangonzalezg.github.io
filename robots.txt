@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 Sitemap: https://ivangonzalez.co/sitemap.xml
 User-agent: *
-Disallow:
+Disallow: /.ftp-deploy-sync-state.json
