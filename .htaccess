@@ -1,9 +1,18 @@
-<FilesMatch "\.(webp|svg|css|js)$">
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
     Header set Cache-Control "max-age=31536000"
 </FilesMatch>
 
 RewriteEngine On
 RewriteBase /
+
+Options -Indexes
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_URI} !^/v[0-9]+/
+RewriteCond %{REQUEST_URI} !^/v[0-9]+/(.*)$
+RewriteRule ^(.*)$ /v1/$1 [L]
 
 RewriteRule ^$ /v1/ [L]
 
@@ -12,7 +21,3 @@ RewriteCond %{DOCUMENT_ROOT}/v%1/index.html -f
 RewriteRule ^v([0-9]+)/?$ /v%1/index.html [L]
 
 RewriteRule ^v([0-9]+)/(.*)$ /v$1/$2 [L]
-
-RewriteCond %{REQUEST_URI} !^/v[0-9]+/
-RewriteCond %{REQUEST_URI} !^/v[0-9]+/(.*)$
-RewriteRule ^(.*)$ /v1/$1 [L]
