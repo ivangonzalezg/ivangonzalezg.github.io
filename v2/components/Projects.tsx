@@ -1,8 +1,9 @@
 import React from "react";
 import { Section } from "./Section";
-import { Globe } from "lucide-react";
+import { Globe, Hash } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Project } from "../types";
+import { getTechIcon } from "../utils/techIcons";
 
 export const Projects: React.FC = () => {
   const { t } = useTranslation();
@@ -47,14 +48,26 @@ export const Projects: React.FC = () => {
                 </h4>
 
                 <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-medium px-3 py-1 bg-slate-50 text-slate-600 border border-slate-100 rounded-full whitespace-nowrap"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {project.tags.map((tag) => {
+                    const iconUrl = getTechIcon(tag);
+                    return (
+                      <span
+                        key={tag}
+                        className="flex items-center gap-1.5 text-xs font-medium px-3 py-1 bg-slate-50 text-slate-600 border border-slate-100 rounded-full whitespace-nowrap"
+                      >
+                        {iconUrl ? (
+                          <img
+                            src={iconUrl}
+                            alt=""
+                            className="w-3 h-3 object-contain"
+                          />
+                        ) : (
+                          <Hash className="w-3 h-3 text-slate-400" />
+                        )}
+                        {tag}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
 

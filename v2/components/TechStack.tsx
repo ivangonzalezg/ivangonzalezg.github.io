@@ -3,28 +3,7 @@ import { Section } from "./Section";
 import { Box } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { TechCategory } from "../types";
-
-// Helper to get brand icon URLs (served from local public assets)
-const getTechIcon = (skill: string) => {
-  const basePath = "/assets/icons";
-  const iconMap: Record<string, string> = {
-    "React Native": `${basePath}/react.svg`,
-    Expo: `${basePath}/expo.svg`,
-    "Android (Java/Kotlin)": `${basePath}/android.svg`,
-    "iOS (Swift)": `${basePath}/swift.svg`,
-    "React.js": `${basePath}/react.svg`,
-    "Next.js": `${basePath}/nextjs.svg`,
-    TypeScript: `${basePath}/typescript.svg`,
-    "Tailwind CSS": `${basePath}/tailwindcss.svg`,
-    "Framer Motion": `${basePath}/framer-motion.svg`,
-    "Node.js": `${basePath}/nodejs.svg`,
-    Django: `${basePath}/django.svg`,
-    "Supabase (PostgreSQL)": `${basePath}/supabase.svg`,
-    Firebase: `${basePath}/firebase.svg`,
-    "Strapi CMS": `${basePath}/strapi.svg`,
-  };
-  return iconMap[skill] || null;
-};
+import { getTechIcon } from "../utils/techIcons";
 
 export const TechStack: React.FC = () => {
   const { t } = useTranslation();
