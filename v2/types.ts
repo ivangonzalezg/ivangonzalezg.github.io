@@ -1,8 +1,10 @@
 
+export type Language = 'en' | 'es';
+
 export interface ProjectLink {
   type: 'app-store' | 'play-store' | 'web';
   url: string;
-  label?: string; // e.g. "Driver App", "User App"
+  label?: string;
 }
 
 export interface Project {

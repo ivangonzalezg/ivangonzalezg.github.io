@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,9 +21,9 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: "Work", href: "#work" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: t("nav.work"), href: "#work" },
+    { name: t("nav.about"), href: "#about" },
+    { name: t("nav.contact"), href: "#contact" },
   ];
 
   return (
@@ -48,9 +54,29 @@ export const Navbar: React.FC = () => {
               {link.name}
             </a>
           ))}
-          <span className="text-xs font-bold text-slate-400 select-none border border-slate-200 px-2 py-1 rounded">
-            <span className="text-slate-900">EN</span> | ES
-          </span>
+          <div className="flex items-center space-x-1 text-xs font-bold border border-slate-200 px-2 py-1 rounded cursor-pointer select-none">
+            <button
+              onClick={() => toggleLanguage("en")}
+              className={`transition-colors ${
+                i18n.language === "en"
+                  ? "text-slate-900"
+                  : "text-slate-400 hover:text-slate-600"
+              }`}
+            >
+              EN
+            </button>
+            <span className="text-slate-300">|</span>
+            <button
+              onClick={() => toggleLanguage("es")}
+              className={`transition-colors ${
+                i18n.language === "es"
+                  ? "text-slate-900"
+                  : "text-slate-400 hover:text-slate-600"
+              }`}
+            >
+              ES
+            </button>
+          </div>
         </div>
 
         {/* Mobile Toggle */}
@@ -81,10 +107,30 @@ export const Navbar: React.FC = () => {
                   {link.name}
                 </a>
               ))}
-              <div className="pt-8">
-                <span className="text-sm font-bold text-slate-400 select-none border border-slate-200 px-3 py-2 rounded">
-                  <span className="text-slate-900">EN</span> | ES
-                </span>
+              <div className="pt-8 flex items-center space-x-3 text-lg font-bold">
+                <button
+                  onClick={() => {
+                    toggleLanguage("en");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={
+                    i18n.language === "en" ? "text-slate-900" : "text-slate-300"
+                  }
+                >
+                  EN
+                </button>
+                <span className="text-slate-200">|</span>
+                <button
+                  onClick={() => {
+                    toggleLanguage("es");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={
+                    i18n.language === "es" ? "text-slate-900" : "text-slate-300"
+                  }
+                >
+                  ES
+                </button>
               </div>
             </motion.div>
           )}

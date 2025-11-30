@@ -1,86 +1,21 @@
 import React from "react";
 import { Section } from "./Section";
-import { Project } from "../types";
 import { Globe } from "lucide-react";
-
-const projects: Project[] = [
-  {
-    id: "bussride",
-    title: "BussRide",
-    tags: ["React Native", "Java Modules", "Firebase", "BLE/RFID"],
-    description:
-      "A mission-critical logistics platform for high-volume transport (MercadoLibre/AT&T). The engineering challenge was creating resilient background GPS tracking that bypasses Android battery optimizations. Solved via a custom Java Native Module and offline validation utilizing BLE & RFID protocols.",
-    logoUrl:
-      "https://play-lh.googleusercontent.com/bKaAtRPrffAWhPtb17pOvA93K4kSnAVT4zj1WwICZO-9Qgu3N1QvTf9o9YZ8VSJKTDI=w240-h480-rw",
-    links: [
-      {
-        type: "app-store",
-        url: "https://apps.apple.com/us/app/bussride/id6448958853",
-        label: "User App",
-      },
-      {
-        type: "play-store",
-        url: "https://play.google.com/store/apps/details?id=com.custint.bussride",
-        label: "User App",
-      },
-      {
-        type: "app-store",
-        url: "https://apps.apple.com/hn/app/bussride-driver/id6470038567",
-        label: "Driver App",
-      },
-      {
-        type: "play-store",
-        url: "https://play.google.com/store/apps/details?id=com.custint.bussrideconductor",
-        label: "Driver App",
-      },
-    ],
-  },
-  {
-    id: "gloflow",
-    title: "Gloflow",
-    tags: ["Expo", "AI Agents", "Supabase", "Vector Embeddings"],
-    description:
-      "An intelligent health assistant with persistent contextual memory. Unlike standard chatbots, this system uses Vector Embeddings (RAG) stored in Supabase to recall user habits, injuries, and preferences, routing queries through specialized multi-agent systems.",
-    logoUrl:
-      "https://play-lh.googleusercontent.com/7k4PKKiuBmvbtOXlSrgYjq_ofhhK7Upw6SPYfSjZKWWG7RTDgt_T3WLbKr4wTz0XGij7sUjOrw7RPwZ0K7i0hg=w240-h480-rw",
-    links: [
-      {
-        type: "app-store",
-        url: "https://apps.apple.com/us/app/gloflow/id6749468474",
-      },
-      {
-        type: "play-store",
-        url: "https://play.google.com/store/apps/details?id=com.gloflow.app",
-      },
-    ],
-  },
-  {
-    id: "autotur",
-    title: "Autotur",
-    tags: ["React", "Strapi", "Google Maps API", "Complex Logic"],
-    description:
-      "A real-time quoting engine for ADO. Engineered complex custom algorithms that instantly calculate logistic costs (tolls, dead mileage, driver shifts, fuel) by querying Google Maps API and processing business rules dynamically.",
-    logoUrl: "https://agencias.autotur.com.mx/favicon.ico",
-    links: [
-      { type: "web", url: "https://autotur.com.mx", label: "Website" },
-      {
-        type: "web",
-        url: "https://agencias.autotur.com.mx",
-        label: "Agency Portal",
-      },
-    ],
-  },
-];
+import { useTranslation } from "react-i18next";
+import { Project } from "../types";
 
 export const Projects: React.FC = () => {
+  const { t } = useTranslation();
+  const projects = t("projects.items", { returnObjects: true }) as Project[];
+
   return (
     <Section id="work" className="scroll-mt-28">
       <div className="mb-16">
         <h2 className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-2">
-          Selected Work
+          {t("projects.section_label")}
         </h2>
         <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-          Engineering Case Studies
+          {t("projects.section_title")}
         </h3>
       </div>
 

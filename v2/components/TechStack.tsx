@@ -1,40 +1,8 @@
 import React from "react";
 import { Section } from "./Section";
-import { TechCategory } from "../types";
 import { Box } from "lucide-react";
-
-const stack: TechCategory[] = [
-  {
-    category: "Mobile & Native",
-    skills: [
-      "React Native",
-      "Expo",
-      "Android (Java/Kotlin)",
-      "iOS (Swift)",
-      "Native Modules",
-    ],
-  },
-  {
-    category: "Frontend",
-    skills: [
-      "React.js",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-    ],
-  },
-  {
-    category: "Backend & Cloud",
-    skills: [
-      "Node.js",
-      "Django",
-      "Supabase (PostgreSQL)",
-      "Firebase",
-      "Strapi CMS",
-    ],
-  },
-];
+import { useTranslation } from "react-i18next";
+import { TechCategory } from "../types";
 
 // Helper to get brand icon URLs
 const getTechIcon = (skill: string) => {
@@ -58,6 +26,11 @@ const getTechIcon = (skill: string) => {
 };
 
 export const TechStack: React.FC = () => {
+  const { t } = useTranslation();
+  const categories = t("techStack.categories", {
+    returnObjects: true,
+  }) as TechCategory[];
+
   return (
     <Section
       id="about"
@@ -70,11 +43,13 @@ export const TechStack: React.FC = () => {
         {/* Header Column */}
         <div className="md:col-span-4">
           <h2 className="text-4xl font-bold text-slate-900 tracking-tight mb-6">
-            Technical <span className="text-slate-400">Arsenal</span>
+            {t("techStack.title")}{" "}
+            <span className="text-slate-400">
+              {t("techStack.title_highlight")}
+            </span>
           </h2>
           <p className="text-slate-600 text-lg font-light leading-relaxed mb-8">
-            I don't just use frameworks; I understand their internals. My stack
-            is chosen for stability, performance, and long-term maintainability.
+            {t("techStack.description")}
           </p>
           {/* Decorative Indicator */}
           <div className="hidden md:block w-12 h-1 bg-indigo-600 rounded-full"></div>
@@ -82,7 +57,7 @@ export const TechStack: React.FC = () => {
 
         {/* Skills Grid */}
         <div className="md:col-span-8 space-y-12">
-          {stack.map((group) => (
+          {categories.map((group) => (
             <div key={group.category} className="group">
               <h3 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-5 flex items-center gap-4">
                 {group.category}

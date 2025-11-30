@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export const Hero: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="min-h-screen flex items-center justify-center px-6 md:px-12 max-w-7xl mx-auto pt-28 pb-20 md:pt-0 md:pb-0">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center w-full">
@@ -14,9 +17,9 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-slate-900 leading-[1.1] mb-8"
           >
-            Scalable Software <br className="hidden md:block" />
-            Architecture & <br className="hidden md:block" />
-            <span className="text-slate-400">Native Solutions.</span>
+            {t("hero.h1")}
+            <br className="hidden md:block" />
+            <span className="text-slate-400">{t("hero.h1_highlight")}</span>
           </motion.h1>
 
           <motion.p
@@ -25,9 +28,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed mb-12 font-light"
           >
-            Full Stack Developer with 6+ years of experience building robust
-            digital ecosystems. Specialized in React Native with Native Modules,
-            Applied AI, and High-Performance Backends.
+            {t("hero.p")}
           </motion.p>
 
           <motion.div
@@ -40,14 +41,14 @@ export const Hero: React.FC = () => {
               href="#work"
               className="group inline-flex items-center justify-center px-8 py-4 bg-slate-900 text-white font-medium text-sm tracking-wide transition-all hover:bg-indigo-600 rounded-sm"
             >
-              View Selected Work
+              {t("hero.btn_primary")}
               <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
               href="#contact"
               className="inline-flex items-center justify-center px-8 py-4 border border-slate-200 text-slate-900 font-medium text-sm tracking-wide hover:bg-slate-50 transition-colors rounded-sm"
             >
-              Available for Contracts
+              {t("hero.btn_secondary")}
             </a>
           </motion.div>
         </div>

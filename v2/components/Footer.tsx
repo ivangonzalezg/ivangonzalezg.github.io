@@ -1,8 +1,10 @@
 import React, { useState, FormEvent } from "react";
 import { Github, Linkedin, Send, CheckCircle, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export const Footer: React.FC = () => {
+  const { t } = useTranslation();
   const [formState, setFormState] = useState<"idle" | "submitting" | "success">(
     "idle"
   );
@@ -31,19 +33,16 @@ export const Footer: React.FC = () => {
           {/* Left Column: Context & Contact Info */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">
-              Ready to scale
-              <br />
-              your product?
+              {t("footer.title")}
             </h2>
             <p className="text-slate-600 text-lg font-light max-w-md mb-8">
-              I am currently open to select freelance projects and technical
-              consulting. If you need robust engineering, let's talk.
+              {t("footer.subtitle")}
             </p>
 
             <div className="space-y-6">
               <div>
                 <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
-                  Direct Email
+                  {t("footer.direct_email")}
                 </h4>
                 <a
                   href="mailto:contacto@ivangonzalez.co"
@@ -55,7 +54,7 @@ export const Footer: React.FC = () => {
 
               <div>
                 <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">
-                  Social Networks
+                  {t("footer.social_networks")}
                 </h4>
                 <div className="flex gap-6">
                   <a
@@ -84,7 +83,7 @@ export const Footer: React.FC = () => {
           {/* Right Column: Contact Form */}
           <div className="bg-slate-50 p-8 md:p-10 rounded-sm border border-slate-100">
             <h3 className="text-xl font-bold text-slate-900 mb-6">
-              Send a Message
+              {t("footer.form_title")}
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -94,7 +93,7 @@ export const Footer: React.FC = () => {
                     htmlFor="name"
                     className="text-xs font-bold uppercase tracking-wider text-slate-500"
                   >
-                    Name
+                    {t("footer.label_name")}
                   </label>
                   <input
                     type="text"
@@ -109,7 +108,7 @@ export const Footer: React.FC = () => {
                     htmlFor="email"
                     className="text-xs font-bold uppercase tracking-wider text-slate-500"
                   >
-                    Email
+                    {t("footer.label_email")}
                   </label>
                   <input
                     type="email"
@@ -126,7 +125,7 @@ export const Footer: React.FC = () => {
                   htmlFor="message"
                   className="text-xs font-bold uppercase tracking-wider text-slate-500"
                 >
-                  Project Details
+                  {t("footer.label_message")}
                 </label>
                 <textarea
                   id="message"
@@ -156,7 +155,7 @@ export const Footer: React.FC = () => {
                       className="flex items-center"
                     >
                       <span className="font-medium text-sm tracking-wide">
-                        Send Message
+                        {t("footer.btn_send")}
                       </span>
                       <Send className="ml-2 w-4 h-4" />
                     </motion.div>
@@ -181,7 +180,7 @@ export const Footer: React.FC = () => {
                     >
                       <CheckCircle className="mr-2 w-5 h-5" />
                       <span className="font-medium text-sm tracking-wide">
-                        Message Sent
+                        {t("footer.btn_sent")}
                       </span>
                     </motion.div>
                   )}
@@ -193,12 +192,11 @@ export const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 pt-8 border-t border-slate-100">
           <p>
-            &copy; {new Date().getFullYear()} Ivan Gonzalez. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {t("footer.copyright")}
           </p>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <span>Designed with Swiss Precision</span>
-            <span>Built with React & Tailwind</span>
+            <span>{t("footer.credits")}</span>
+            <span>{t("footer.tech")}</span>
           </div>
         </div>
       </div>

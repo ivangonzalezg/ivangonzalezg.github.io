@@ -5,6 +5,7 @@ import { ValueProp } from "./components/ValueProp";
 import { Projects } from "./components/Projects";
 import { TechStack } from "./components/TechStack";
 import { Footer } from "./components/Footer";
+import "./i18n";
 
 function App() {
   return (
