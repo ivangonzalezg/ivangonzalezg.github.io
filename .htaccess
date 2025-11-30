@@ -1,27 +1,40 @@
+# Long cache for static images
 <FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
     Header set Cache-Control "max-age=31536000"
 </FilesMatch>
 
+# Prevent directory listing
+Options -Indexes
+
+# Enable rewrite engine
 RewriteEngine On
 RewriteBase /
 
-Options -Indexes
-
+# Default everything (except /v1 and /v2) to v1
+RewriteCond %{REQUEST_URI} !^/v1/
+RewriteCond %{REQUEST_URI} !^/v2/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteCond %{REQUEST_URI} !^/v[0-9]+/
-RewriteCond %{REQUEST_URI} !^/v[0-9]+/(.*)$
 RewriteRule ^(.*)$ /v1/$1 [L]
-
 RewriteRule ^$ /v1/ [L]
 
-RewriteCond %{REQUEST_URI} ^/v([0-9]+)/?$ [NC]
-RewriteCond %{DOCUMENT_ROOT}/v%1/index.html -f
-RewriteRule ^v([0-9]+)/?$ /v%1/index.html [L]
+# Keep direct access to version 1
+RewriteRule ^v1/?$ /v1/index.html [L]
+RewriteRule ^v1/(.*)$ /v1/$1 [L]
 
-RewriteRule ^v([0-9]+)/(.*)$ /v$1/$2 [L]
+# Serve Vite assets and routes for v2 from dist/
+RewriteCond %{REQUEST_URI} ^/v2/(.*)$
+RewriteCond %{DOCUMENT_ROOT}/v2/dist/%1 -f
+RewriteRule ^v2/(.*)$ /v2/dist/$1 [L]
+RewriteCond %{REQUEST_URI} ^/v2/(.*)$
+RewriteCond %{DOCUMENT_ROOT}/v2/dist/%1 -d
+RewriteRule ^v2/(.*)$ /v2/dist/$1/ [L]
+RewriteCond %{REQUEST_URI} ^/v2
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^v2/?.*$ /v2/dist/index.html [L]
 
+# Block deployment state file
 <Files ".ftp-deploy-sync-state.json">
     Order Allow,Deny
     Deny from all
