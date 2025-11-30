@@ -107,7 +107,7 @@ export const content: Record<'en' | 'es', Translation> = {
           title: "BussRide",
           tags: ["React Native", "Java Modules", "Firebase", "BLE/RFID"],
           description: "A mission-critical logistics platform for high-volume transport (MercadoLibre/AT&T). The engineering challenge was creating resilient background GPS tracking that bypasses Android battery optimizations. Solved via a custom Java Native Module and offline validation utilizing BLE & RFID protocols.",
-          logoUrl: "https://play-lh.googleusercontent.com/bKaAtRPrffAWhPtb17pOvA93K4kSnAVT4zj1WwICZO-9Qgu3N1QvTf9o9YZ8VSJKTDI=w240-h480-rw",
+          logoUrl: "/assets/images/bussride.webp",
           links: [
             { type: 'app-store', url: 'https://apps.apple.com/us/app/bussride/id6448958853', label: 'User App' },
             { type: 'play-store', url: 'https://play.google.com/store/apps/details?id=com.custint.bussride', label: 'User App' },
@@ -120,7 +120,7 @@ export const content: Record<'en' | 'es', Translation> = {
           title: "Gloflow",
           tags: ["Expo", "AI Agents", "Supabase", "Vector Embeddings"],
           description: "An intelligent health assistant with persistent contextual memory. Unlike standard chatbots, this system uses Vector Embeddings (RAG) stored in Supabase to recall user habits, injuries, and preferences, routing queries through specialized multi-agent systems.",
-          logoUrl: "https://play-lh.googleusercontent.com/7k4PKKiuBmvbtOXlSrgYjq_ofhhK7Upw6SPYfSjZKWWG7RTDgt_T3WLbKr4wTz0XGij7sUjOrw7RPwZ0K7i0hg=w240-h480-rw",
+          logoUrl: "/assets/images/gloflow.webp",
           links: [
             { type: 'app-store', url: 'https://apps.apple.com/us/app/gloflow/id6749468474' },
             { type: 'play-store', url: 'https://play.google.com/store/apps/details?id=com.gloflow.app' },
@@ -131,7 +131,7 @@ export const content: Record<'en' | 'es', Translation> = {
           title: "Autotur",
           tags: ["React", "Strapi", "Google Maps API", "Complex Logic"],
           description: "A real-time quoting engine for ADO. Engineered complex custom algorithms that instantly calculate logistic costs (tolls, dead mileage, driver shifts, fuel) by querying Google Maps API and processing business rules dynamically.",
-          logoUrl: "https://agencias.autotur.com.mx/favicon.ico",
+          logoUrl: "/assets/images/autotur.webp",
           links: [
             { type: 'web', url: 'https://autotur.com.mx', label: 'Website' },
             { type: 'web', url: 'https://agencias.autotur.com.mx', label: 'Agency Portal' },
@@ -205,7 +205,7 @@ export const content: Record<'en' | 'es', Translation> = {
           title: "BussRide",
           tags: ["React Native", "Java Modules", "Firebase", "BLE/RFID"],
           description: "Plataforma logística de misión crítica para transporte masivo (MercadoLibre/AT&T). El reto de ingeniería fue crear un rastreo GPS en segundo plano resiliente que evite las optimizaciones de batería de Android. Solucionado mediante un Módulo Nativo en Java y validación offline usando protocolos BLE y RFID.",
-          logoUrl: "https://play-lh.googleusercontent.com/bKaAtRPrffAWhPtb17pOvA93K4kSnAVT4zj1WwICZO-9Qgu3N1QvTf9o9YZ8VSJKTDI=w240-h480-rw",
+          logoUrl: "/assets/images/bussride.webp",
           links: [
             { type: 'app-store', url: 'https://apps.apple.com/us/app/bussride/id6448958853', label: 'App Usuario' },
             { type: 'play-store', url: 'https://play.google.com/store/apps/details?id=com.custint.bussride', label: 'App Usuario' },
@@ -218,7 +218,7 @@ export const content: Record<'en' | 'es', Translation> = {
           title: "Gloflow",
           tags: ["Expo", "AI Agents", "Supabase", "Vector Embeddings"],
           description: "Asistente de salud inteligente con memoria contextual persistente. A diferencia de los chatbots estándar, este sistema utiliza Embeddings Vectoriales (RAG) almacenados en Supabase para recordar hábitos, lesiones y preferencias del usuario, enrutando consultas a través de sistemas multi-agente especializados.",
-          logoUrl: "https://play-lh.googleusercontent.com/7k4PKKiuBmvbtOXlSrgYjq_ofhhK7Upw6SPYfSjZKWWG7RTDgt_T3WLbKr4wTz0XGij7sUjOrw7RPwZ0K7i0hg=w240-h480-rw",
+          logoUrl: "/assets/images/gloflow.webp",
           links: [
             { type: 'app-store', url: 'https://apps.apple.com/us/app/gloflow/id6749468474' },
             { type: 'play-store', url: 'https://play.google.com/store/apps/details?id=com.gloflow.app' },
@@ -229,7 +229,7 @@ export const content: Record<'en' | 'es', Translation> = {
           title: "Autotur",
           tags: ["React", "Strapi", "Google Maps API", "Lógica Compleja"],
           description: "Motor de cotización en tiempo real para ADO. Algoritmos personalizados complejos que calculan instantáneamente costos logísticos (peajes, kilómetros muertos, turnos de conductor, combustible) consultando la API de Google Maps y procesando reglas de negocio dinámicamente.",
-          logoUrl: "https://agencias.autotur.com.mx/favicon.ico",
+          logoUrl: "/assets/images/autotur.webp",
           links: [
             { type: 'web', url: 'https://autotur.com.mx', label: 'Sitio Web' },
             { type: 'web', url: 'https://agencias.autotur.com.mx', label: 'Portal Agencias' },

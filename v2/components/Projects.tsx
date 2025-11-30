@@ -76,14 +76,14 @@ export const Projects: React.FC = () => {
                     >
                       {link.type === "app-store" && (
                         <img
-                          src="https://cdn.simpleicons.org/apple/0f172a"
+                          src="/assets/icons/apple.svg"
                           alt="Apple"
                           className="w-3.5 h-3.5 group-hover/link:scale-110 transition-transform"
                         />
                       )}
                       {link.type === "play-store" && (
                         <img
-                          src="https://cdn.simpleicons.org/googleplay/0f172a"
+                          src="/assets/icons/googleplay.svg"
                           alt="Google Play"
                           className="w-3.5 h-3.5 group-hover/link:scale-110 transition-transform"
                         />

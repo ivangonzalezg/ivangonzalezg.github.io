@@ -4,23 +4,24 @@ import { Box } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { TechCategory } from "../types";
 
-// Helper to get brand icon URLs
+// Helper to get brand icon URLs (served from local public assets)
 const getTechIcon = (skill: string) => {
+  const basePath = "/assets/icons";
   const iconMap: Record<string, string> = {
-    "React Native": "https://cdn.simpleicons.org/react/61DAFB",
-    Expo: "https://cdn.simpleicons.org/expo/000020",
-    "Android (Java/Kotlin)": "https://cdn.simpleicons.org/android/3DDC84",
-    "iOS (Swift)": "https://cdn.simpleicons.org/swift/F05138",
-    "React.js": "https://cdn.simpleicons.org/react/61DAFB",
-    "Next.js": "https://cdn.simpleicons.org/nextdotjs/000000",
-    TypeScript: "https://cdn.simpleicons.org/typescript/3178C6",
-    "Tailwind CSS": "https://cdn.simpleicons.org/tailwindcss/06B6D4",
-    "Framer Motion": "https://cdn.simpleicons.org/framer/0055FF",
-    "Node.js": "https://cdn.simpleicons.org/nodedotjs/5FA04E",
-    Django: "https://cdn.simpleicons.org/django/092E20",
-    "Supabase (PostgreSQL)": "https://cdn.simpleicons.org/supabase/3ECF8E",
-    Firebase: "https://cdn.simpleicons.org/firebase/FFCA28",
-    "Strapi CMS": "https://cdn.simpleicons.org/strapi/4945FF",
+    "React Native": `${basePath}/react.svg`,
+    Expo: `${basePath}/expo.svg`,
+    "Android (Java/Kotlin)": `${basePath}/android.svg`,
+    "iOS (Swift)": `${basePath}/swift.svg`,
+    "React.js": `${basePath}/react.svg`,
+    "Next.js": `${basePath}/nextjs.svg`,
+    TypeScript: `${basePath}/typescript.svg`,
+    "Tailwind CSS": `${basePath}/tailwindcss.svg`,
+    "Framer Motion": `${basePath}/framer-motion.svg`,
+    "Node.js": `${basePath}/nodejs.svg`,
+    Django: `${basePath}/django.svg`,
+    "Supabase (PostgreSQL)": `${basePath}/supabase.svg`,
+    Firebase: `${basePath}/firebase.svg`,
+    "Strapi CMS": `${basePath}/strapi.svg`,
   };
   return iconMap[skill] || null;
 };
