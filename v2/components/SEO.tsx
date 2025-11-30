@@ -48,7 +48,7 @@ export const SEO: React.FC = () => {
       <meta property="og:title" content={t("meta.title")} />
       <meta property="og:description" content={t("meta.description")} />
       <meta property="og:image" content={imageUrl} />
-      <meta property="og:image:width" content="375" />
+      <meta property="og:image:width" content="500" />
       <meta property="og:image:height" content="500" />
 
       {/* Twitter */}

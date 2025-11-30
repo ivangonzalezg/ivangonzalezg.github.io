@@ -7,9 +7,9 @@
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "/assets/images/profile.webp",
-      "sizes": "375x500",
-      "type": "image/webp"
+      "src": "/assets/images/favicon.png",
+      "sizes": "140x140",
+      "type": "image/png"
     }
   ]
 }
