@@ -53,6 +53,7 @@ export const Footer: React.FC = () => {
     },
     [formState]
   );
+  const isDev = import.meta.env?.DEV ?? false;
 
   return (
     <footer
@@ -239,6 +240,22 @@ export const Footer: React.FC = () => {
                   )}
                 </AnimatePresence>
               </button>
+
+              {isDev && (
+                <button
+                  type="button"
+                  onClick={async () => {
+                    await logErrorEvent("contact_form_error", {
+                      reason: "manual_test_trigger",
+                    });
+                    setFormState("error");
+                    setTimeout(() => setFormState("idle"), 3000);
+                  }}
+                  className="text-xs text-slate-400 underline mt-2"
+                >
+                  Log test error (dev)
+                </button>
+              )}
             </form>
           </div>
         </div>
