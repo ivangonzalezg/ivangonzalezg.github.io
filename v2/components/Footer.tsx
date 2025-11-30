@@ -9,7 +9,11 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { initFirebaseAnalytics, saveContactForm } from "../firebase";
+import {
+  initFirebaseAnalytics,
+  saveContactForm,
+  logErrorEvent,
+} from "../firebase";
 
 export const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -37,8 +41,11 @@ export const Footer: React.FC = () => {
         await saveContactForm({ name, email, message });
         setFormState("success");
         form.reset();
-      } catch (err) {
-        console.error("Failed to submit contact form", err);
+      } catch (error) {
+        console.error("Failed to submit contact form", error);
+        await logErrorEvent("contact_form_error", {
+          message: error instanceof Error ? error.message : "unknown_error",
+        });
         setFormState("error");
       } finally {
         setTimeout(() => setFormState("idle"), 3000);

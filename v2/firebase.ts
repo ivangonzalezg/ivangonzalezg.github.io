@@ -1,5 +1,5 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
-import { getAnalytics, isSupported, Analytics } from "firebase/analytics";
+import { getAnalytics, isSupported, Analytics, logEvent } from "firebase/analytics";
 import { getPerformance } from "firebase/performance";
 import {
   getFirestore,
@@ -80,4 +80,19 @@ export const saveContactForm = async (payload: ContactFormPayload) => {
     source: "v2",
     createdAt: serverTimestamp(),
   });
+};
+
+export const logErrorEvent = async (
+  name: string,
+  details?: Record<string, unknown>
+) => {
+  if (!analyticsInstance) {
+    await initFirebaseAnalytics();
+  }
+  if (analyticsInstance) {
+    try {
+      logEvent(analyticsInstance, name, details);
+    } catch {
+    }
+  }
 };
