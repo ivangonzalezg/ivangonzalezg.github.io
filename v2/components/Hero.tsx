@@ -68,7 +68,7 @@ export const Hero: React.FC = () => {
             {/* Main Image */}
             <div className="relative w-full h-full overflow-hidden rounded-sm border border-slate-200 bg-slate-200 z-10 group cursor-none md:cursor-default">
               <img
-                src="https://ivangonzalez.co/assets/images/profile.webp"
+                src="/assets/images/profile.webp"
                 alt="Ivan Gonzalez"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
               />

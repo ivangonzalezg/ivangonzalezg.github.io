@@ -8,6 +8,9 @@ export const SEO: React.FC = () => {
   const url = isEn
     ? "https://ivangonzalez.co/"
     : `https://ivangonzalez.co/${i18n.language}`;
+  const imageUrl = `${url}${
+    url.endsWith("/") ? "" : "/"
+  }assets/images/profile.webp`;
 
   useEffect(() => {
     document.documentElement.lang = i18n.language;
@@ -37,10 +40,7 @@ export const SEO: React.FC = () => {
       />
       <meta property="og:title" content={t("meta.title")} />
       <meta property="og:description" content={t("meta.description")} />
-      <meta
-        property="og:image"
-        content="https://ivangonzalez.co/assets/images/profile.webp"
-      />
+      <meta property="og:image" content={imageUrl} />
       <meta property="og:image:width" content="375" />
       <meta property="og:image:height" content="500" />
 
@@ -49,10 +49,7 @@ export const SEO: React.FC = () => {
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={t("meta.title")} />
       <meta name="twitter:description" content={t("meta.description")} />
-      <meta
-        name="twitter:image"
-        content="https://ivangonzalez.co/assets/images/profile.webp"
-      />
+      <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content="Portrait of Ivan Gonzalez" />
       <meta name="twitter:site" content="@ivangonzalezgrc" />
       <meta name="twitter:creator" content="@ivangonzalezgrc" />
