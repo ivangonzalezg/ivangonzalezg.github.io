@@ -2,16 +2,21 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const { lang } = useParams();
+
+  const currentLang = i18n.language;
 
   const switchLanguage = (newLang: string) => {
+    if (currentLang === newLang) {
+      return;
+    }
+
     if (newLang === "en") {
       navigate("/");
     } else {
@@ -32,8 +37,6 @@ export const Navbar: React.FC = () => {
     { name: t("nav.about"), href: "#about" },
     { name: t("nav.contact"), href: "#contact" },
   ];
-
-  const currentLang = lang || "en";
 
   return (
     <nav

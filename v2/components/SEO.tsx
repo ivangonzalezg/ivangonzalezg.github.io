@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 export const SEO: React.FC = () => {
@@ -9,11 +9,14 @@ export const SEO: React.FC = () => {
     ? "https://ivangonzalez.co/"
     : `https://ivangonzalez.co/${i18n.language}`;
 
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
   return (
     <>
       <title>{t("meta.title")}</title>
       <meta name="description" content={t("meta.description")} />
-      <html lang={i18n.language} />
       <link rel="canonical" href={url} />
 
       {/* Open Graph / Facebook */}

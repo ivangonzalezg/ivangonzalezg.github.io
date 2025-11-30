@@ -1,11 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
@@ -16,27 +10,18 @@ import { Footer } from "./components/Footer";
 import { SEO } from "./components/SEO";
 import "./i18n";
 
-const PortfolioContent: React.FC = () => {
-  const { lang } = useParams<{ lang: string }>();
+interface PortfolioProps {
+  lang: "en" | "es";
+}
+
+const Portfolio: React.FC<PortfolioProps> = ({ lang }) => {
   const { i18n } = useTranslation();
 
-  if (lang === "en") {
-    return <Navigate to="/" replace />;
-  }
-
-  const targetLang = lang || "en";
-
-  const isValidLang = targetLang === "en" || targetLang === "es";
-
   useEffect(() => {
-    if (isValidLang && i18n.language !== targetLang) {
-      i18n.changeLanguage(targetLang);
+    if (i18n.language !== lang) {
+      i18n.changeLanguage(lang);
     }
-  }, [targetLang, isValidLang, i18n]);
-
-  if (!isValidLang) {
-    return <Navigate to="/" replace />;
-  }
+  }, [lang, i18n]);
 
   return (
     <div className="bg-slate-50 min-h-screen selection:bg-indigo-100 selection:text-indigo-900">
@@ -57,8 +42,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<PortfolioContent />} />
-        <Route path="/:lang" element={<PortfolioContent />} />
+        <Route path="/" element={<Portfolio lang="en" />} />
+        <Route path="/es" element={<Portfolio lang="es" />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
