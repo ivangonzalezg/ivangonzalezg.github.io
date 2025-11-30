@@ -1,5 +1,15 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
-import { getAnalytics, isSupported, Analytics, logEvent } from "firebase/analytics";
+import {
+  initializeAppCheck,
+  ReCaptchaV3Provider,
+  AppCheck,
+} from "firebase/app-check";
+import {
+  getAnalytics,
+  isSupported,
+  Analytics,
+  logEvent,
+} from "firebase/analytics";
 import { getPerformance } from "firebase/performance";
 import {
   getFirestore,
@@ -19,20 +29,24 @@ const firebaseConfig = {
   measurementId: "G-RB0VRZTYLJ",
 };
 
+const isBrowser = typeof window !== "undefined";
+
+const appCheckSiteKey = "6Lc0brUfAAAAAKmV2zvLmm4CR_gd1J2kW3Q1Acub";
+
 let analyticsInstance: Analytics | null = null;
 let performanceInstance: ReturnType<typeof getPerformance> | null = null;
 let firestoreInstance: Firestore | null = null;
+let appCheckInstance: AppCheck | null = null;
 
 const getFirebaseApp = (): FirebaseApp => {
   return getApps().length ? getApp() : initializeApp(firebaseConfig);
 };
 
+
 export const initFirebaseAnalytics = async (): Promise<void> => {
-  if (typeof window === "undefined") {
+  if (!isBrowser) {
     return;
   }
-
-  const app = getFirebaseApp();
 
   const analyticsSupported = await new Promise<boolean>((resolve) => {
     isSupported()
@@ -41,24 +55,51 @@ export const initFirebaseAnalytics = async (): Promise<void> => {
   });
 
   if (!analyticsInstance && analyticsSupported) {
+    const app = getFirebaseApp();
     analyticsInstance = getAnalytics(app);
-  }
-
-  if (!performanceInstance) {
-    try {
-      performanceInstance = getPerformance(app);
-    } catch {
-    }
   }
 };
 
-export const getFirestoreDb = (): Firestore | null => {
-  if (typeof window === "undefined") {
-    return null;
+
+export const initFirebasePerformance = (): Promise<void> => {
+  if (!isBrowser) {
+    return
+  }
+
+  if (!performanceInstance) {
+    const app = getFirebaseApp();
+    performanceInstance = getPerformance(app);
+
+  }
+};
+
+export const initFirebaseAppCheck = (): Promise<void> => {
+  if (!isBrowser) {
+    return
+  }
+
+  if (!appCheckSiteKey) {
+    console.warn("App Check site key missing; App Check not initialized.");
+    return;
+  }
+
+  if (!appCheckInstance) {
+    const app = getFirebaseApp();
+    appCheckInstance = initializeAppCheck(app, {
+      provider: new ReCaptchaV3Provider(appCheckSiteKey),
+      isTokenAutoRefreshEnabled: true,
+    });
+  }
+};
+
+export const getFirestoreDb = async (): Promise<Firestore> => {
+  if (!isBrowser) {
+    return null
   }
 
   if (!firestoreInstance) {
-    firestoreInstance = getFirestore(getFirebaseApp());
+    const app = getFirebaseApp()
+    firestoreInstance = getFirestore(app);
   }
 
   return firestoreInstance;
@@ -71,7 +112,7 @@ type ContactFormPayload = {
 };
 
 export const saveContactForm = async (payload: ContactFormPayload) => {
-  const db = getFirestoreDb();
+  const db = await getFirestoreDb();
   if (!db) {
     throw new Error("Firestore is not available");
   }
