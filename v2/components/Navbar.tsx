@@ -2,14 +2,21 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { lang } = useParams();
 
-  const toggleLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
+  const switchLanguage = (newLang: string) => {
+    if (newLang === "en") {
+      navigate("/");
+    } else {
+      navigate(`/${newLang}`);
+    }
   };
 
   useEffect(() => {
@@ -25,6 +32,8 @@ export const Navbar: React.FC = () => {
     { name: t("nav.about"), href: "#about" },
     { name: t("nav.contact"), href: "#contact" },
   ];
+
+  const currentLang = lang || "en";
 
   return (
     <nav
@@ -56,9 +65,9 @@ export const Navbar: React.FC = () => {
           ))}
           <div className="flex items-center space-x-1 text-xs font-bold border border-slate-200 px-2 py-1 rounded cursor-pointer select-none">
             <button
-              onClick={() => toggleLanguage("en")}
+              onClick={() => switchLanguage("en")}
               className={`transition-colors ${
-                i18n.language === "en"
+                currentLang === "en"
                   ? "text-slate-900"
                   : "text-slate-400 hover:text-slate-600"
               }`}
@@ -67,9 +76,9 @@ export const Navbar: React.FC = () => {
             </button>
             <span className="text-slate-300">|</span>
             <button
-              onClick={() => toggleLanguage("es")}
+              onClick={() => switchLanguage("es")}
               className={`transition-colors ${
-                i18n.language === "es"
+                currentLang === "es"
                   ? "text-slate-900"
                   : "text-slate-400 hover:text-slate-600"
               }`}
@@ -110,11 +119,11 @@ export const Navbar: React.FC = () => {
               <div className="pt-8 flex items-center space-x-3 text-lg font-bold">
                 <button
                   onClick={() => {
-                    toggleLanguage("en");
+                    switchLanguage("en");
                     setIsMobileMenuOpen(false);
                   }}
                   className={
-                    i18n.language === "en" ? "text-slate-900" : "text-slate-300"
+                    currentLang === "en" ? "text-slate-900" : "text-slate-300"
                   }
                 >
                   EN
@@ -122,11 +131,11 @@ export const Navbar: React.FC = () => {
                 <span className="text-slate-200">|</span>
                 <button
                   onClick={() => {
-                    toggleLanguage("es");
+                    switchLanguage("es");
                     setIsMobileMenuOpen(false);
                   }}
                   className={
-                    i18n.language === "es" ? "text-slate-900" : "text-slate-300"
+                    currentLang === "es" ? "text-slate-900" : "text-slate-300"
                   }
                 >
                   ES

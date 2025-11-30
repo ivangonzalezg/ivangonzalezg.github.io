@@ -2,6 +2,10 @@
 import { Project, ValueProp, TechCategory } from './types';
 
 interface Translation {
+  meta: {
+    title: string;
+    description: string;
+  };
   nav: {
     work: string;
     about: string;
@@ -61,6 +65,10 @@ const techStackData: TechCategory[] = [
 
 export const content: Record<'en' | 'es', Translation> = {
   en: {
+    meta: {
+      title: "Ivan Gonzalez | Senior Full Stack Developer",
+      description: "Scalable Software Architecture & Native Solutions. Specialized in React Native, Applied AI, and High-Performance Backends."
+    },
     nav: {
       work: "Work",
       about: "About",
@@ -155,6 +163,10 @@ export const content: Record<'en' | 'es', Translation> = {
     }
   },
   es: {
+    meta: {
+      title: "Ivan Gonzalez | Desarrollador Senior Full Stack",
+      description: "Arquitectura de Software Escalable y Soluciones Nativas. Especializado en React Native, IA Aplicada y Backends de Alto Rendimiento."
+    },
     nav: {
       work: "Proyectos",
       about: "Stack",
