@@ -10,13 +10,13 @@ Options -Indexes
 RewriteEngine On
 RewriteBase /
 
-# Default everything (except /v1 and /v2) to v1
+# Default everything (except /v1 and /v2) to v2
 RewriteCond %{REQUEST_URI} !^/v1/
 RewriteCond %{REQUEST_URI} !^/v2/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /v1/$1 [L]
-RewriteRule ^$ /v1/ [L]
+RewriteRule ^(.*)$ /v2/$1 [L]
+RewriteRule ^$ /v2/ [L]
 
 # Keep direct access to version 1
 RewriteRule ^v1/?$ /v1/index.html [L]
