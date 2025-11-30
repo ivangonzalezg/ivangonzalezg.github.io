@@ -7,7 +7,7 @@ export const Hero: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 md:px-12 max-w-7xl mx-auto pt-28 pb-20 md:pt-0 md:pb-0">
+    <section className="min-h-screen flex items-center justify-center px-6 md:px-12 max-w-7xl mx-auto pt-28 pb-20 md:pt-16 md:pb-16">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center w-full">
         {/* Text Content */}
         <div className="lg:col-span-7 order-2 lg:order-1">

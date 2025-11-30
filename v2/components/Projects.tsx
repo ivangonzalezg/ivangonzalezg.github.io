@@ -10,7 +10,7 @@ export const Projects: React.FC = () => {
   const projects = t("projects.items", { returnObjects: true }) as Project[];
 
   return (
-    <Section id="work" className="scroll-mt-28">
+    <Section id="work" className="scroll-mt-8 md:scroll-mt-0">
       <div className="mb-16">
         <h2 className="text-sm font-bold text-indigo-600 uppercase tracking-widest mb-2">
           {t("projects.section_label")}
