@@ -1,6 +1,13 @@
-import { initializeApp, getApps, getApp } from "firebase/app";
+import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
 import { getAnalytics, isSupported, Analytics } from "firebase/analytics";
-import { getPerformance, FirebasePerformance } from "firebase/performance";
+import { getPerformance } from "firebase/performance";
+import {
+  getFirestore,
+  Firestore,
+  addDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6VOW0xiQKy045ebpzQvPkXi82JcAdzsM",
@@ -13,14 +20,19 @@ const firebaseConfig = {
 };
 
 let analyticsInstance: Analytics | null = null;
-let performanceInstance: FirebasePerformance | null = null;
+let performanceInstance: ReturnType<typeof getPerformance> | null = null;
+let firestoreInstance: Firestore | null = null;
+
+const getFirebaseApp = (): FirebaseApp => {
+  return getApps().length ? getApp() : initializeApp(firebaseConfig);
+};
 
 export const initFirebaseAnalytics = async (): Promise<void> => {
   if (typeof window === "undefined") {
     return;
   }
 
-  const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+  const app = getFirebaseApp();
 
   const analyticsSupported = await new Promise<boolean>((resolve) => {
     isSupported()
@@ -38,4 +50,34 @@ export const initFirebaseAnalytics = async (): Promise<void> => {
     } catch {
     }
   }
+};
+
+export const getFirestoreDb = (): Firestore | null => {
+  if (typeof window === "undefined") {
+    return null;
+  }
+
+  if (!firestoreInstance) {
+    firestoreInstance = getFirestore(getFirebaseApp());
+  }
+
+  return firestoreInstance;
+};
+
+type ContactFormPayload = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export const saveContactForm = async (payload: ContactFormPayload) => {
+  const db = getFirestoreDb();
+  if (!db) {
+    throw new Error("Firestore is not available");
+  }
+  return addDoc(collection(db, "forms"), {
+    ...payload,
+    source: "v2",
+    createdAt: serverTimestamp(),
+  });
 };

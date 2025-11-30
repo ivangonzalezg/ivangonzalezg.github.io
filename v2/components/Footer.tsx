@@ -1,27 +1,51 @@
-import React, { useState, FormEvent } from "react";
-import { Github, Linkedin, Send, CheckCircle, Loader2 } from "lucide-react";
+import React, { useState, FormEvent, useCallback } from "react";
+import {
+  Github,
+  Linkedin,
+  Send,
+  CheckCircle,
+  Loader2,
+  AlertCircle,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { initFirebaseAnalytics, saveContactForm } from "../firebase";
 
 export const Footer: React.FC = () => {
   const { t } = useTranslation();
-  const [formState, setFormState] = useState<"idle" | "submitting" | "success">(
-    "idle"
+  const [formState, setFormState] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = useCallback(
+    async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      if (formState === "submitting") {
+        return;
+      }
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      const name = String(formData.get("name") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const message = String(formData.get("message") || "").trim();
+      if (!name || !email || !message) {
+        return;
+      }
+      setFormState("submitting");
+      try {
+        await initFirebaseAnalytics();
+        await saveContactForm({ name, email, message });
+        setFormState("success");
+        form.reset();
+      } catch (err) {
+        console.error("Failed to submit contact form", err);
+        setFormState("error");
+      } finally {
+        setTimeout(() => setFormState("idle"), 3000);
+      }
+    },
+    [formState]
   );
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    setFormState("submitting");
-
-    // Simulate network request
-    setTimeout(() => {
-      setFormState("success");
-      form.reset(); // Clear the form fields
-      // Reset state after showing success message
-      setTimeout(() => setFormState("idle"), 3000);
-    }, 1500);
-  };
 
   return (
     <footer
@@ -98,9 +122,11 @@ export const Footer: React.FC = () => {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     required
                     className="w-full bg-white border border-slate-200 p-3 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-all rounded-sm placeholder:text-slate-300"
                     placeholder="Jane Doe"
+                    disabled={formState === "submitting"}
                   />
                 </div>
                 <div className="space-y-2">
@@ -113,9 +139,11 @@ export const Footer: React.FC = () => {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     required
                     className="w-full bg-white border border-slate-200 p-3 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-all rounded-sm placeholder:text-slate-300"
                     placeholder="jane@company.com"
+                    disabled={formState === "submitting"}
                   />
                 </div>
               </div>
@@ -129,9 +157,11 @@ export const Footer: React.FC = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   required
                   className="w-full bg-white border border-slate-200 p-3 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-all rounded-sm placeholder:text-slate-300 resize-none"
+                  disabled={formState === "submitting"}
                   placeholder="Tell me about your engineering challenges..."
                 ></textarea>
               </div>
@@ -142,6 +172,8 @@ export const Footer: React.FC = () => {
                 className={`w-full py-4 px-6 rounded-sm flex items-center justify-center space-x-2 transition-all duration-300 ${
                   formState === "success"
                     ? "bg-green-600 text-white"
+                    : formState === "error"
+                    ? "bg-red-600 text-white"
                     : "bg-slate-900 text-white hover:bg-indigo-600"
                 }`}
               >
@@ -181,6 +213,20 @@ export const Footer: React.FC = () => {
                       <CheckCircle className="mr-2 w-5 h-5" />
                       <span className="font-medium text-sm tracking-wide">
                         {t("footer.btn_sent")}
+                      </span>
+                    </motion.div>
+                  )}
+                  {formState === "error" && (
+                    <motion.div
+                      key="error"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="flex items-center"
+                    >
+                      <AlertCircle className="mr-2 w-5 h-5" />
+                      <span className="font-medium text-sm tracking-wide">
+                        {t("footer.btn_send")}
                       </span>
                     </motion.div>
                   )}
