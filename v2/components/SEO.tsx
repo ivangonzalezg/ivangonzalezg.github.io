@@ -8,9 +8,10 @@ export const SEO: React.FC = () => {
   const url = isEn
     ? "https://ivangonzalez.co/"
     : `https://ivangonzalez.co/${i18n.language}`;
-  const imageUrl = `${url}${
-    url.endsWith("/") ? "" : "/"
-  }assets/images/profile.webp`;
+  const baseUrl = "https://ivangonzalez.co";
+  const imageUrl = `${baseUrl}/assets/images/profile.webp`;
+  const enUrl = `${baseUrl}/`;
+  const esUrl = `${baseUrl}/es`;
 
   useEffect(() => {
     document.documentElement.lang = i18n.language;
@@ -29,11 +30,17 @@ export const SEO: React.FC = () => {
         content="Ivan Dario Gonzalez Garcia, contacto@ivangonzalez.co"
       />
       <link rel="canonical" href={url} />
+      <link rel="alternate" hrefLang="en" href={enUrl} />
+      <link rel="alternate" hrefLang="es" href={esUrl} />
+      <link rel="alternate" hrefLang="x-default" href={enUrl} />
+      <meta name="robots" content="index,follow" />
       <meta name="theme-color" content="#ffffff" />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
+      <meta property="og:locale" content={isEn ? "en_US" : "es_ES"} />
+      <meta property="og:locale:alternate" content={isEn ? "es_ES" : "en_US"} />
       <meta
         property="og:site_name"
         content="Ivan Gonzalez | Full Stack Developer"
@@ -53,6 +60,23 @@ export const SEO: React.FC = () => {
       <meta name="twitter:image:alt" content="Portrait of Ivan Gonzalez" />
       <meta name="twitter:site" content="@ivangonzalezgrc" />
       <meta name="twitter:creator" content="@ivangonzalezgrc" />
+
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Ivan Dario Gonzalez Garcia",
+            url: baseUrl,
+            image: imageUrl,
+            jobTitle: "Senior Full Stack Developer",
+            description: t("meta.description"),
+            sameAs: ["https://twitter.com/ivangonzalezgrc"],
+          }),
+        }}
+      />
     </>
   );
 };

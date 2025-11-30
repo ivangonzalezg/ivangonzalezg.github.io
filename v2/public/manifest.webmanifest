@@ -1,0 +1,15 @@
+{
+  "name": "Ivan Gonzalez | Senior Full Stack Developer",
+  "short_name": "Ivan Gonzalez",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/assets/images/profile.webp",
+      "sizes": "375x500",
+      "type": "image/webp"
+    }
+  ]
+}
