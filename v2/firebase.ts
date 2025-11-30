@@ -1,5 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAnalytics, isSupported, Analytics } from "firebase/analytics";
+import { getPerformance, FirebasePerformance } from "firebase/performance";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD6VOW0xiQKy045ebpzQvPkXi82JcAdzsM",
@@ -12,6 +13,7 @@ const firebaseConfig = {
 };
 
 let analyticsInstance: Analytics | null = null;
+let performanceInstance: FirebasePerformance | null = null;
 
 export const initFirebaseAnalytics = async (): Promise<void> => {
   if (typeof window === "undefined") {
@@ -28,5 +30,12 @@ export const initFirebaseAnalytics = async (): Promise<void> => {
 
   if (!analyticsInstance && analyticsSupported) {
     analyticsInstance = getAnalytics(app);
+  }
+
+  if (!performanceInstance) {
+    try {
+      performanceInstance = getPerformance(app);
+    } catch {
+    }
   }
 };
