@@ -1,7 +1,7 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
 import {
   initializeAppCheck,
-  ReCaptchaV3Provider,
+  ReCaptchaEnterpriseProvider,
   AppCheck,
 } from "firebase/app-check";
 import {
@@ -30,8 +30,6 @@ const firebaseConfig = {
 };
 
 const isBrowser = typeof window !== "undefined";
-
-const appCheckSiteKey = "6Lc0brUfAAAAAKmV2zvLmm4CR_gd1J2kW3Q1Acub";
 
 let analyticsInstance: Analytics | null = null;
 let performanceInstance: ReturnType<typeof getPerformance> | null = null;
@@ -78,15 +76,15 @@ export const initFirebaseAppCheck = (): Promise<void> => {
     return
   }
 
-  if (!appCheckSiteKey) {
-    console.warn("App Check site key missing; App Check not initialized.");
-    return;
+  if (import.meta.env.DEV) {
+    // @ts-ignore
+    self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
   }
 
   if (!appCheckInstance) {
     const app = getFirebaseApp();
     appCheckInstance = initializeAppCheck(app, {
-      provider: new ReCaptchaV3Provider(appCheckSiteKey),
+      provider: new ReCaptchaEnterpriseProvider("6Lc-RR0sAAAAAB99eyBGzQ5wF_RofX1NckHve7lF"),
       isTokenAutoRefreshEnabled: true,
     });
   }
@@ -116,7 +114,7 @@ export const saveContactForm = async (payload: ContactFormPayload) => {
   if (!db) {
     throw new Error("Firestore is not available");
   }
-  return addDoc(collection(db, "forms"), {
+  return addDoc(collection(db, "form"), {
     ...payload,
     source: "v2",
     createdAt: serverTimestamp(),
