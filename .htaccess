@@ -1,5 +1,5 @@
 # Long cache for static images
-<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|js|css)$">
     Header set Cache-Control "max-age=31536000"
 </FilesMatch>
 
