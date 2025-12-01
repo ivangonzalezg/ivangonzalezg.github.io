@@ -1,12 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import {
-  initFirebaseAnalytics,
-  initFirebasePerformance,
-  initFirebaseAppCheck,
-  initFirebaseFirestore,
-} from "./firebase";
+import { initFirebase } from "./firebase";
 import { initializeApp } from "firebase/app";
 import "./index.css";
 
@@ -35,10 +30,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-initFirebaseAppCheck(app);
-initFirebaseAnalytics(app);
-initFirebasePerformance(app);
-initFirebaseFirestore(app);
+initFirebase(app);
 
 root.render(
   <React.StrictMode>

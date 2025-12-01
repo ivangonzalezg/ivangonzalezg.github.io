@@ -9,11 +9,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import {
-  initFirebaseAnalytics,
-  saveContactForm,
-  logErrorEvent,
-} from "../firebase";
+import { saveContactForm, logErrorEvent } from "../firebase";
 
 export const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -37,7 +33,6 @@ export const Footer: React.FC = () => {
       }
       setFormState("submitting");
       try {
-        await initFirebaseAnalytics();
         await saveContactForm({ name, email, message });
         setFormState("success");
         form.reset();
