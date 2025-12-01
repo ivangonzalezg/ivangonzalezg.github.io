@@ -1,7 +1,7 @@
 import { FirebaseApp } from "firebase/app";
 import {
   initializeAppCheck,
-  ReCaptchaEnterpriseProvider,
+  ReCaptchaV3Provider,
   AppCheck,
   getToken
 } from "firebase/app-check";
@@ -51,7 +51,7 @@ export const initFirebasePerformance = async (app: FirebaseApp): Promise<void> =
 export const initFirebaseAppCheck = async (app: FirebaseApp): Promise<void> => {
   if (!appCheckInstance) {
     appCheckInstance = initializeAppCheck(app, {
-      provider: new ReCaptchaEnterpriseProvider("6Lc-RR0sAAAAAB99eyBGzQ5wF_RofX1NckHve7lF"),
+      provider: new ReCaptchaV3Provider("6LdHYB0sAAAAAESZTq2M_Ar59xU0gjUTseaNaLpw"),
       isTokenAutoRefreshEnabled: true,
     });
   }
