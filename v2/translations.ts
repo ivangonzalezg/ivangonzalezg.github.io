@@ -71,7 +71,7 @@ export const content: Record<'en' | 'es', Translation> = {
     },
     nav: {
       work: "Work",
-      about: "About",
+      about: "Stack",
       contact: "Contact"
     },
     hero: {
@@ -106,7 +106,7 @@ export const content: Record<'en' | 'es', Translation> = {
           id: "bussride",
           title: "BussRide",
           tags: ["React Native", "Java Modules", "Firebase", "BLE/RFID"],
-          description: "A mission-critical logistics platform for high-volume transport (MercadoLibre/AT&T). The engineering challenge was creating resilient background GPS tracking that bypasses Android battery optimizations. Solved via a custom Java Native Module and offline validation utilizing BLE & RFID protocols.",
+          description: "Comprehensive corporate logistics platform used by giants like MercadoLibre and AT&T. It orchestrates massive personnel transport via two native apps and a resilient background GPS tracking engine. Key features include offline boarding validation (BLE/RFID) to eliminate fraud and real-time fleet synchronization.",
           logoUrl: "/assets/images/bussride.webp",
           links: [
             { type: 'app-store', url: 'https://apps.apple.com/us/app/bussride/id6448958853', label: 'User App' },
@@ -119,7 +119,7 @@ export const content: Record<'en' | 'es', Translation> = {
           id: "gloflow",
           title: "Gloflow",
           tags: ["Expo", "AI Agents", "Supabase", "Vector Embeddings"],
-          description: "An intelligent health assistant with persistent contextual memory. Unlike standard chatbots, this system uses Vector Embeddings (RAG) stored in Supabase to recall user habits, injuries, and preferences, routing queries through specialized multi-agent systems.",
+          description: "A 'Second Brain' for personal wellness. Unlike static trackers, Gloflow uses AI Agents and Vector Memory to learn from your daily habits, injuries, and routines. It provides hyper-personalized recovery plans and health insights that adapt over time, preventing burnout before it happens.",
           logoUrl: "/assets/images/gloflow.webp",
           links: [
             { type: 'app-store', url: 'https://apps.apple.com/us/app/gloflow/id6749468474' },
@@ -130,7 +130,7 @@ export const content: Record<'en' | 'es', Translation> = {
           id: "autotur",
           title: "Autotur",
           tags: ["React", "Strapi", "Google Maps API", "Complex Logic"],
-          description: "A real-time quoting engine for ADO. Engineered complex custom algorithms that instantly calculate logistic costs (tolls, dead mileage, driver shifts, fuel) by querying Google Maps API and processing business rules dynamically.",
+          description: "Enterprise quoting engine for ADO (Mexico's largest bus fleet). It digitalizes the charter process, reducing quote generation time from days to seconds. The system dynamically optimizes operational costs—tolls, fuel, driver shifts—using real-time geospatial algorithms.",
           logoUrl: "/assets/images/autotur.webp",
           links: [
             { type: 'web', url: 'https://autotur.com.mx', label: 'Website' },
@@ -204,8 +204,8 @@ export const content: Record<'en' | 'es', Translation> = {
           id: "bussride",
           title: "BussRide",
           tags: ["React Native", "Java Modules", "Firebase", "BLE/RFID"],
-          description: "Plataforma logística de misión crítica para transporte masivo (MercadoLibre/AT&T). El reto de ingeniería fue crear un rastreo GPS en segundo plano resiliente que evite las optimizaciones de batería de Android. Solucionado mediante un Módulo Nativo en Java y validación offline usando protocolos BLE y RFID.",
-          logoUrl: "/assets/images/bussride.webp",
+          description: "Plataforma integral de logística utilizada por corporativos como MercadoLibre y AT&T. Gestiona la operación de transporte de personal mediante dos apps nativas y un motor de tracking GPS resiliente en background. Integra validación de abordaje offline (BLE/RFID/QR) para eliminar fraudes y garantizar la seguridad operativa.",
+          logoUrl: "https://play-lh.googleusercontent.com/bKaAtRPrffAWhPtb17pOvA93K4kSnAVT4zj1WwICZO-9Qgu3N1QvTf9o9YZ8VSJKTDI=w240-h480-rw",
           links: [
             { type: 'app-store', url: 'https://apps.apple.com/us/app/bussride/id6448958853', label: 'App Usuario' },
             { type: 'play-store', url: 'https://play.google.com/store/apps/details?id=com.custint.bussride', label: 'App Usuario' },
@@ -217,8 +217,8 @@ export const content: Record<'en' | 'es', Translation> = {
           id: "gloflow",
           title: "Gloflow",
           tags: ["Expo", "AI Agents", "Supabase", "Vector Embeddings"],
-          description: "Asistente de salud inteligente con memoria contextual persistente. A diferencia de los chatbots estándar, este sistema utiliza Embeddings Vectoriales (RAG) almacenados en Supabase para recordar hábitos, lesiones y preferencias del usuario, enrutando consultas a través de sistemas multi-agente especializados.",
-          logoUrl: "/assets/images/gloflow.webp",
+          description: "Un 'Segundo Cerebro' para tu bienestar. A diferencia de trackers estáticos, Gloflow utiliza Agentes de IA y Memoria Vectorial para aprender de tus hábitos, lesiones y rutinas diarias. Ofrece planes de recuperación y prevención hiper-personalizados que evitan el desgaste físico antes de que ocurra.",
+          logoUrl: "https://play-lh.googleusercontent.com/7k4PKKiuBmvbtOXlSrgYjq_ofhhK7Upw6SPYfSjZKWWG7RTDgt_T3WLbKr4wTz0XGij7sUjOrw7RPwZ0K7i0hg=w240-h480-rw",
           links: [
             { type: 'app-store', url: 'https://apps.apple.com/us/app/gloflow/id6749468474' },
             { type: 'play-store', url: 'https://play.google.com/store/apps/details?id=com.gloflow.app' },
@@ -228,8 +228,8 @@ export const content: Record<'en' | 'es', Translation> = {
           id: "autotur",
           title: "Autotur",
           tags: ["React", "Strapi", "Google Maps API", "Lógica Compleja"],
-          description: "Motor de cotización en tiempo real para ADO. Algoritmos personalizados complejos que calculan instantáneamente costos logísticos (peajes, kilómetros muertos, turnos de conductor, combustible) consultando la API de Google Maps y procesando reglas de negocio dinámicamente.",
-          logoUrl: "/assets/images/autotur.webp",
+          description: "Motor de cotización empresarial para ADO (la mayor flota de autobuses de México). Digitaliza el proceso de renta de unidades, reduciendo tiempos de respuesta de días a segundos. El sistema optimiza costos operativos (peajes, combustible, viáticos) en tiempo real mediante algoritmos geoespaciales.",
+          logoUrl: "https://agencias.autotur.com.mx/favicon.ico",
           links: [
             { type: 'web', url: 'https://autotur.com.mx', label: 'Sitio Web' },
             { type: 'web', url: 'https://agencias.autotur.com.mx', label: 'Portal Agencias' },
