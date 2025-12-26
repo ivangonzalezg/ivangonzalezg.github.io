@@ -1,0 +1,35 @@
+# Long cache for static images
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|js|css)$">
+    Header set Cache-Control "max-age=31536000"
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# Enable rewrite engine
+RewriteEngine On
+RewriteBase /
+
+# Serve root-level special files directly
+RewriteRule ^(robots\.txt|sitemap\.xml|CNAME)$ - [L]
+RewriteRule ^\.ftp-deploy-sync-state\.json$ - [F,L]
+
+# Pass through existing files and directories
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Legacy v1 static site
+RewriteRule ^v1/?$ /v1/index.html [L]
+RewriteRule ^v1/(.*)$ /v1/index.html [L]
+
+# SPA fallback to the current build
+RewriteRule ^$ /index.html [L]
+RewriteRule . /index.html [L]
+
+# Block deployment state file
+<Files ".ftp-deploy-sync-state.json">
+    Order Allow,Deny
+    Deny from all
+</Files>

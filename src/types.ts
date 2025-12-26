@@ -1,8 +1,7 @@
-
-export type Language = 'en' | 'es';
+export type Language = "en" | "es";
 
 export interface ProjectLink {
-  type: 'app-store' | 'play-store' | 'web';
+  type: "app-store" | "play-store" | "web";
   url: string;
   label?: string;
 }
@@ -24,5 +23,5 @@ export interface TechCategory {
 export interface ValueProp {
   title: string;
   description: string;
-  icon: 'layers' | 'smartphone' | 'cpu';
+  icon: "layers" | "smartphone" | "cpu";
 }
