@@ -19,14 +19,12 @@ jobs:
         with:
           node-version: 22.14.0
           cache: yarn
-          cache-dependency-path: v2/yarn.lock
+          cache-dependency-path: yarn.lock
 
-      - name: Install dependencies (v2)
-        working-directory: v2
+      - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build v2
-        working-directory: v2
+      - name: Build
         run: yarn build
 
       - name: Sync files
