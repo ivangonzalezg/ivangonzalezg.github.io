@@ -36,6 +36,9 @@ export const getTechIcon = (skill: string): string | null => {
     "google maps api": "googlemaps.svg",
     "complex logic": "wolfram.svg", // Wolfram as proxy for logic/math
     "lógica compleja": "wolfram.svg",
+    "three.js": "threejs.svg",
+    "<model-viewer>": "modelviewer.svg",
+    "ar": "ar.svg",
   };
 
   const iconName = iconMap[normalizedSkill];

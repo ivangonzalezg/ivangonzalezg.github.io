@@ -124,6 +124,17 @@ export const content: Record<"en" | "es", Translation> = {
       section_title: "Engineering Case Studies",
       items: [
         {
+          id: "artemivo",
+          title: "Artemivo",
+          tags: ["Next.js", "Supabase", "Three.js", "<model-viewer>", "AR"],
+          description:
+            "A virtual gallery ecosystem where artists and galleries create and share immersive 3D exhibition rooms—fully navigable in the browser, no app required. Powered by Three.js and model-viewer, each space renders detailed artwork in real time. The built-in AR mode lets visitors anchor pieces onto their own walls through the device camera, on both Android and iOS.",
+          logoUrl: "/assets/images/artemivo.webp",
+          links: [
+            { type: "web", url: "https://artemivo.co", label: "Website" },
+          ],
+        },
+        {
           id: "bussride",
           title: "BussRide",
           tags: ["React Native", "Java Modules", "Firebase", "BLE/RFID"],
@@ -256,6 +267,17 @@ export const content: Record<"en" | "es", Translation> = {
       section_label: "Portafolio Selecto",
       section_title: "Casos de Estudio de Ingeniería",
       items: [
+        {
+          id: "artemivo",
+          title: "Artemivo",
+          tags: ["Next.js", "Supabase", "Three.js", "<model-viewer>", "AR"],
+          description:
+            "Un ecosistema de galerías virtuales donde artistas y coleccionistas crean y comparten salas de exhibición 3D inmersivas, navegables desde el navegador sin instalar nada. Cada espacio renderiza las obras en detalle usando Three.js y model-viewer. El modo AR integrado permite a los visitantes anclar piezas en sus propias paredes a través de la cámara, en Android e iOS.",
+          logoUrl: "/assets/images/artemivo.webp",
+          links: [
+            { type: "web", url: "https://artemivo.co", label: "Sitio Web" },
+          ],
+        },
         {
           id: "bussride",
           title: "BussRide",
