@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
         setTimeout(() => setFormState("idle"), 3000);
       }
     },
-    [formState]
+    [formState],
   );
   const isDev = import.meta.env?.DEV ?? false;
 
@@ -176,8 +176,8 @@ export const Footer: React.FC = () => {
                   formState === "success"
                     ? "bg-green-600 text-white"
                     : formState === "error"
-                    ? "bg-red-600 text-white"
-                    : "bg-slate-900 text-white hover:bg-indigo-600"
+                      ? "bg-red-600 text-white"
+                      : "bg-slate-900 text-white hover:bg-indigo-600"
                 }`}
               >
                 <AnimatePresence mode="wait">
@@ -260,7 +260,6 @@ export const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} {t("footer.copyright")}
           </p>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <span>{t("footer.credits")}</span>
             <span>{t("footer.tech")}</span>
           </div>
         </div>

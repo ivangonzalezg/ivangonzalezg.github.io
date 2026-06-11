@@ -42,7 +42,6 @@ interface Translation {
     btn_sending: string;
     btn_sent: string;
     copyright: string;
-    credits: string;
     tech: string;
   };
 }
@@ -221,7 +220,6 @@ export const content: Record<"en" | "es", Translation> = {
       btn_sending: "Sending...",
       btn_sent: "Message Sent",
       copyright: "Ivan Gonzalez. All rights reserved.",
-      credits: "Designed with Swiss Precision",
       tech: "Built with React & Tailwind",
     },
   },
@@ -367,7 +365,6 @@ export const content: Record<"en" | "es", Translation> = {
       btn_sending: "Enviando...",
       btn_sent: "Mensaje Enviado",
       copyright: "Ivan Gonzalez. Todos los derechos reservados.",
-      credits: "Diseñado con Precisión Suiza",
       tech: "Construido con React y Tailwind",
     },
   },
