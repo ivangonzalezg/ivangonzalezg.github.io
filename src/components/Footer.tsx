@@ -128,7 +128,7 @@ export const Footer: React.FC = () => {
                     name="name"
                     required
                     className="w-full bg-white border border-slate-200 p-3 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-all rounded-sm placeholder:text-slate-300"
-                    placeholder="Jane Doe"
+                    placeholder={t("footer.placeholder_name")}
                     disabled={formState === "submitting"}
                   />
                 </div>
@@ -145,7 +145,7 @@ export const Footer: React.FC = () => {
                     name="email"
                     required
                     className="w-full bg-white border border-slate-200 p-3 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-all rounded-sm placeholder:text-slate-300"
-                    placeholder="jane@company.com"
+                    placeholder={t("footer.placeholder_email")}
                     disabled={formState === "submitting"}
                   />
                 </div>
@@ -165,7 +165,7 @@ export const Footer: React.FC = () => {
                   required
                   className="w-full bg-white border border-slate-200 p-3 text-sm outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-all rounded-sm placeholder:text-slate-300 resize-none"
                   disabled={formState === "submitting"}
-                  placeholder="Tell me about your engineering challenges..."
+                  placeholder={t("footer.placeholder_message")}
                 ></textarea>
               </div>
 

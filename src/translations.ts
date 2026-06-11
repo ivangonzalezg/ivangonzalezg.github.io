@@ -38,6 +38,9 @@ interface Translation {
     label_name: string;
     label_email: string;
     label_message: string;
+    placeholder_name: string;
+    placeholder_email: string;
+    placeholder_message: string;
     btn_send: string;
     btn_sending: string;
     btn_sent: string;
@@ -216,6 +219,9 @@ export const content: Record<"en" | "es", Translation> = {
       label_name: "Name",
       label_email: "Email",
       label_message: "Project Details",
+      placeholder_name: "Jane Doe",
+      placeholder_email: "jane@company.com",
+      placeholder_message: "Tell me about your engineering challenges...",
       btn_send: "Send Message",
       btn_sending: "Sending...",
       btn_sent: "Message Sent",
@@ -361,6 +367,9 @@ export const content: Record<"en" | "es", Translation> = {
       label_name: "Nombre",
       label_email: "Email",
       label_message: "Detalles del Proyecto",
+      placeholder_name: "Juan Pérez",
+      placeholder_email: "juan@empresa.com",
+      placeholder_message: "Cuéntame sobre los desafíos de tu proyecto...",
       btn_send: "Enviar Mensaje",
       btn_sending: "Enviando...",
       btn_sent: "Mensaje Enviado",
